@@ -12,3 +12,4 @@ name       | version  | license                  | offical site
 -----------|----------|--------------------------|------------------
 boost      | 1.57     | Boost Software License   | http://boost.org
 msgpack-c  | 1.0.0    | Apache License v2        | https://github.com/msgpack/msgpack-c
+rapidjson  | 0.1      | MIT License              | http://miloyip.github.io/rapidjson/
