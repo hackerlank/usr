@@ -15,4 +15,5 @@ cppzmq     | N/A      | MIT License              | https://github.com/zeromq/cpp
 lua        | 5.3      | MIT license              | http://www.lua.org
 msgpack-c  | 1.0.0    | Apache License v2        | https://github.com/msgpack/msgpack-c
 rapidjson  | 0.1      | MIT License              | http://miloyip.github.io/rapidjson/
+zlib       | 1.2.8    | Zlib License             | http://zlib.net/
 zeromq     | 4.0.6    | LGPL License v3          | http://www.zeromq.org/
