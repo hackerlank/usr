@@ -8,7 +8,7 @@ Visual C++ 2013 compiled Windows x86/x64 binaires.
 
 This project contains:
 
-name       | version  | license                  | offical site
+name       | version  | license                  | official site
 -----------|----------|--------------------------|------------------
 boost      | 1.57     | Boost Software License   | http://boost.org
 cppzmq     | N/A      | MIT License              | https://github.com/zeromq/cppzmq
