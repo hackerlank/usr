@@ -10,7 +10,7 @@ This project contains:
 
 name          | version  | license                  | official site
 --------------|----------|--------------------------|------------------
-boost         | 1.57     | Boost Software License   | http://boost.org
+asio          | 1.10.6   | Boost Software License   | https://think-async.com/
 cppzmq        | N/A      | MIT License              | https://github.com/zeromq/cppzmq
 libmysqlclient| 6.1.5    | GPL license              | http://dev.mysql.com/doc/connector-c/en/index.html
 lua           | 5.3      | MIT license              | http://www.lua.org
