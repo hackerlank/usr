@@ -21,10 +21,11 @@
 #include "msgpack/versioning.hpp"
 
 #if !defined(MSGPACK_USE_CPP03)
-  // If MSVC would support C++11 completely,
-  // then 'defined(_MSC_VER)' would replace with
-  // '_MSC_VER < XXXX'
-# if (__cplusplus < 201103) || defined(_MSC_VER)
+# if defined(_MSC_VER)
+#  if _MSC_VER < 1900
+#    define MSGPACK_USE_CPP03
+#  endif
+# elif (__cplusplus < 201103L)
 #  define MSGPACK_USE_CPP03
 # endif
 #endif // MSGPACK_USE_CPP03
@@ -32,10 +33,10 @@
 
 
 #if defined __cplusplus
-#if __cplusplus < 201103
+#if __cplusplus < 201103L
 
 #if !defined(nullptr)
-#  if _MSC_VER < 1600 
+#  if _MSC_VER < 1600
 #    define nullptr (0)
 #  endif
 #endif
@@ -44,7 +45,9 @@
 
 namespace msgpack {
 
+/// @cond
 MSGPACK_API_VERSION_NAMESPACE(v1) {
+/// @endcond
 
 template <typename T>
 struct unique_ptr : std::auto_ptr<T> {
@@ -75,18 +78,38 @@ template <typename T>
 struct enable_if<false, T> {
 };
 
+template<typename T, T val>
+struct integral_constant {
+    static T const value = val;
+    typedef T value_type;
+    typedef integral_constant<T, val> type;
+};
+
+typedef integral_constant<bool, true> true_type;
+typedef integral_constant<bool, false> false_type;
+
+template<class T, class U>
+struct is_same : false_type {};
+
+template<class T>
+struct is_same<T, T> : true_type {};
+
+/// @cond
 }  // MSGPACK_API_VERSION_NAMESPACE(v1)
+/// @endcond
 
 }  // namespace msgpack
 
 
-#else  // __cplusplus < 201103
+#else  // __cplusplus < 201103L
 
 #include <memory>
 #include <tuple>
 
 namespace msgpack {
+/// @cond
 MSGPACK_API_VERSION_NAMESPACE(v1) {
+/// @endcond
 
     // unique_ptr
     using std::unique_ptr;
@@ -97,12 +120,15 @@ MSGPACK_API_VERSION_NAMESPACE(v1) {
     using std::move;
     using std::swap;
     using std::enable_if;
+    using std::is_same;
 
+/// @cond
 }  // MSGPACK_API_VERSION_NAMESPACE(v1)
+/// @endcond
 }  // namespace msgpack
 
 
-#endif // __cplusplus < 201103
+#endif // __cplusplus < 201103L
 
 #endif // __cplusplus
 
